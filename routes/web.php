@@ -39,6 +39,11 @@ Route::prefix('pos')->group(function () {
 
 
 
+use App\Http\Controllers\pos\cart\CartController;
+
+Route::post('/cart/add/{perfume}', [CartController::class, 'add'])->name('cart.add');
+Route::post('/cart/remove/{perfume}', [CartController::class, 'remove'])->name('cart.remove');
+Route::post('/cart/clear', [CartController::class, 'clear'])->name('cart.clear');
 
 
 

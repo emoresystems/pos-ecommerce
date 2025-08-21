@@ -66,9 +66,13 @@
                                 <span class="font-bold text-primary text-sm sm:text-base">
                                     ksh {{ number_format($perfume->retail_price, 2) }}
                                 </span>
-                                <button class="bg-primary text-white px-2 sm:px-3 py-1 rounded-lg text-xs sm:text-sm">
-                                    <i class="fas fa-cart-plus mr-1"></i> Add
-                                </button>
+                                <form action="{{ route('cart.add', $perfume) }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="bg-primary text-white px-2 sm:px-3 py-1 rounded-lg text-xs sm:text-sm">
+                                        <i class="fas fa-cart-plus mr-1"></i> Add
+                                    </button>
+                                </form>
+
                             </div>
                         </div>
                     </div>
@@ -83,8 +87,44 @@
                 <div class="p-4 md:p-6">
                     <h3 class="text-lg font-semibold mb-6">Current Sale</h3>
 
-                    {{-- Cart Items --}}
+                    @if(session('cart') && count(session('cart')) > 0)
+                    <div class="space-y-4">
+                        @foreach(session('cart') as $id => $item)
+                        <div class="flex justify-between items-center bg-white shadow rounded-lg p-3">
+                            <div>
+                                <h4 class="font-semibold text-sm">{{ $item['name'] }}</h4>
+                                <p class="text-xs text-gray-500">
+                                    {{ $item['quantity'] }} × ksh {{ number_format($item['price'], 2) }}
+                                </p>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <span class="font-bold">ksh {{ number_format($item['quantity'] * $item['price'], 2) }}</span>
+                                <form action="{{ route('cart.remove', $id) }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="text-red-500 hover:text-red-700">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                        @endforeach
+
+                        <div class="flex justify-between font-bold text-lg border-t pt-3">
+                            <span>Total</span>
+                            <span>
+                                ksh {{ number_format(collect(session('cart'))->sum(fn($item) => $item['quantity'] * $item['price']), 2) }}
+                            </span>
+                        </div>
+
+                        <form action="{{ route('cart.clear') }}" method="POST">
+                            @csrf
+                            <button type="submit" class="w-full bg-red-600 text-white py-2 rounded-lg mt-4">Clear Cart</button>
+                        </form>
+                    </div>
+                    @else
                     <p class="text-gray-500">No items in cart yet.</p>
+                    @endif
+
                 </div>
             </div>
         </div>
