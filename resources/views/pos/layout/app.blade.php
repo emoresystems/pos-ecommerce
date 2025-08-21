@@ -27,7 +27,9 @@
 <body class="bg-gray-100 flex h-screen">
     <!-- Mobile Navbar -->
     <div class="lg:hidden fixed top-0 left-0 right-0 bg-dark text-white flex items-center justify-between px-4 py-3 z-20">
-        <h1 class="text-lg font-bold">{{ config('app.name') }}</h1>
+        <a href="/pos/dashboard">
+            <h1 class="text-lg font-bold">{{ config('app.name') }}</h1>
+        </a>
         <button id="menu-toggle" class="text-white text-2xl focus:outline-none">
             <i class="fas fa-bars"></i>
         </button>
@@ -37,7 +39,9 @@
     <div id="sidebar"
         class="fixed lg:static inset-y-0 left-0 w-64 bg-dark text-white flex flex-col transform -translate-x-full lg:translate-x-0 transition-transform duration-300 z-30">
         <div class="p-5 text-center border-b border-gray-700 mt-12 lg:mt-0">
-            <h1 class="text-2xl font-bold">{{ config('app.name') }}</h1>
+            <a href="/pos/dashboard">
+                <h1 class="text-lg font-bold">{{ config('app.name') }}</h1>
+            </a>
             <p class="text-xs text-gray-400 mt-1">POS System v2.1</p>
         </div>
 
@@ -114,8 +118,8 @@
                         <i class="fas fa-chevron-down text-xs ml-auto"></i>
                     </button>
                     <ul id="supplierDropdown" class="hidden pl-10">
-                        <li><a href="#" class="block p-2 text-sm text-gray-300 hover:bg-gray-700 rounded-md">Add Supplier</a></li>
-                        <li><a href="#" class="block p-2 text-sm text-gray-300 hover:bg-gray-700 rounded-md">All Suppliers</a></li>
+                        <li><a href="{{ route('suppliers.create') }}" class="block p-2 text-sm text-gray-300 hover:bg-gray-700 rounded-md">Add Supplier</a></li>
+                        <li><a href="{{ route('suppliers.index') }}" class="block p-2 text-sm text-gray-300 hover:bg-gray-700 rounded-md">All Suppliers</a></li>
                     </ul>
                 </li>
 

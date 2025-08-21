@@ -2,9 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
+
+// pos
 use App\Http\Controllers\pos\DashboardController;
 use App\Http\Controllers\pos\perfumes\PerfumeController;
 use App\Http\Controllers\pos\categories\CategoryController;
+use App\Http\Controllers\pos\suppliers\SupplierController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +33,8 @@ Route::prefix('pos')->group(function () {
     Route::resource('perfumes', PerfumeController::class);
 
     Route::resource('categories', CategoryController::class);
+
+    Route::resource('suppliers', SupplierController::class);
 });
 
 
