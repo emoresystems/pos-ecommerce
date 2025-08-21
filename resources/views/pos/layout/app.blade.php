@@ -100,8 +100,8 @@
                         <i class="fas fa-chevron-down text-xs ml-auto"></i>
                     </button>
                     <ul id="categoryDropdown" class="hidden pl-10">
-                        <li><a href="#" class="block p-2 text-sm text-gray-300 hover:bg-gray-700 rounded-md">Add Category</a></li>
-                        <li><a href="#" class="block p-2 text-sm text-gray-300 hover:bg-gray-700 rounded-md">All Categories</a></li>
+                        <li><a href="{{ route('categories.create') }}" class="block p-2 text-sm text-gray-300 hover:bg-gray-700 rounded-md">Add Category</a></li>
+                        <li><a href="{{ route('categories.index') }}" class="block p-2 text-sm text-gray-300 hover:bg-gray-700 rounded-md">All Categories</a></li>
                     </ul>
                 </li>
 

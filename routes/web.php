@@ -1,9 +1,10 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\pos\DashboardController;
 use App\Http\Controllers\pos\perfumes\PerfumeController;
-use App\Http\Controllers\ProfileController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\pos\categories\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,9 +24,12 @@ Route::get('/', function () {
 
 
 Route::prefix('pos')->group(function () {
+
     Route::resource('dashboard', DashboardController::class);
 
     Route::resource('perfumes', PerfumeController::class);
+
+    Route::resource('categories', CategoryController::class);
 });
 
 
