@@ -39,4 +39,9 @@ class Perfume extends Model
     {
         return $this->belongsTo(Supplier::class);
     }
+
+    public function orderItems()
+    {
+        return $this->hasMany(OrderItem::class);
+    }
 }

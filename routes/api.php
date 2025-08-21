@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\PerfumeController;
 use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\SupplierController;
 use App\Http\Controllers\Api\CustomerController;
+use App\Http\Controllers\Api\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,3 +27,4 @@ Route::apiResource('perfumes', PerfumeController::class);
 Route::apiResource('categories', CategoryController::class);
 Route::apiResource('suppliers', SupplierController::class);
 Route::apiResource('customers', CustomerController::class);
+Route::apiResource('orders', OrderController::class);

@@ -27,7 +27,7 @@
             <button id="cartToggle"
                 class="md:hidden absolute left-2 right-4 bottom-[-22px] bg-primary text-white px-4 py-2 rounded-full flex items-center justify-center shadow-lg relative">
                 <i class="fas fa-shopping-cart text-lg"></i>
-                
+
                 <!-- Cart count badge -->
                 @php $cartCount = session('cart') ? collect(session('cart'))->sum('quantity') : 0; @endphp
                 @if($cartCount > 0)
@@ -132,6 +132,21 @@
                         <form action="{{ route('cart.clear') }}" method="POST">
                             @csrf
                             <button type="submit" class="w-full bg-red-600 text-white py-2 rounded-lg mt-4">Clear Cart</button>
+                        </form>
+
+                        <form action="{{ route('orders.invoice') }}" method="POST">
+                            @csrf
+                            <div class="mt-4">
+                                <label class="block font-semibold mb-1">Customer</label>
+                                <select name="customer_id" class="w-full border rounded-lg p-2 mb-3">
+                                    @foreach($customers as $customer)
+                                    <option value="{{ $customer->id }}">{{ $customer->first_name }} {{ $customer->last_name }}</option>
+                                    @endforeach
+                                </select>
+                                <button type="submit" class="w-full bg-primary text-white py-2 rounded-lg">
+                                    Create Invoice
+                                </button>
+                            </div>
                         </form>
                     </div>
                     @else

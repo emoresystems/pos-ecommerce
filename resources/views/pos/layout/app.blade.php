@@ -60,7 +60,7 @@
         <nav class="flex-1 overflow-y-auto pt-5">
             <ul>
                 <li class="mb-1">
-                    <a href="#"
+                    <a href="/pos/dashboard"
                         class="flex items-center p-3 text-sm font-medium rounded-md bg-primary text-white">
                         <i class="fas fa-cash-register w-5"></i>
                         <span class="ml-3">Point of Sale</span>
@@ -76,8 +76,10 @@
                         <i class="fas fa-chevron-down text-xs ml-auto"></i>
                     </button>
                     <ul id="ordersDropdown" class="hidden pl-10">
-                        <li><a href="#" class="block p-2 text-sm text-gray-300 hover:bg-gray-700 rounded-md">All Orders</a></li>
-                        <li><a href="#" class="block p-2 text-sm text-gray-300 hover:bg-gray-700 rounded-md">New Order</a></li>
+                        <li><a href="{{ route('orders.create') }}" class="block p-2 text-sm text-gray-300 hover:bg-gray-700 rounded-md">New Order</a></li>
+                        <li><a href="{{ route('orders.index') }}" class="block p-2 text-sm text-gray-300 hover:bg-gray-700 rounded-md">All Orders</a></li>
+                        <li><a href="{{ route('orders.pending') }}" class="block p-2 text-sm text-gray-300 hover:bg-gray-700 rounded-md">Pending Orders</a></li>
+                        <li><a href="{{ route('orders.completed') }}" class="block p-2 text-sm text-gray-300 hover:bg-gray-700 rounded-md">Completed Orders</a></li>
                     </ul>
                 </li>
 

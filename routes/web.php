@@ -1,14 +1,17 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProfileController;
 
 // pos
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\pos\cart\CartController;
 use App\Http\Controllers\pos\DashboardController;
+use App\Http\Controllers\pos\orders\OrderController;
 use App\Http\Controllers\pos\perfumes\PerfumeController;
-use App\Http\Controllers\pos\categories\CategoryController;
-use App\Http\Controllers\pos\suppliers\SupplierController;
 use App\Http\Controllers\pos\customers\CustomerController;
+use App\Http\Controllers\pos\suppliers\SupplierController;
+use App\Http\Controllers\pos\categories\CategoryController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -36,12 +39,19 @@ Route::prefix('pos')->group(function () {
     Route::resource('categories', CategoryController::class);
 
     Route::resource('suppliers', SupplierController::class);
+
     Route::resource('customers', CustomerController::class);
+
+    Route::resource('orders', OrderController::class);
+    Route::post('/orders/invoice', [OrderController::class, 'storeInvoice'])->name('orders.invoice');
+    Route::get('/orders/{order}/invoice', [OrderController::class, 'showInvoice'])->name('orders.showInvoice');
+    //filtered orders
+    Route::get('orders/status/pending', [OrderController::class, 'pending'])->name('orders.pending');
+    Route::get('orders/status/completed', [OrderController::class, 'completed'])->name('orders.completed');
+    Route::patch('/orders/{order}/complete', [OrderController::class, 'markComplete'])->name('orders.complete');
+    Route::patch('/orders/{order}/cancel', [OrderController::class, 'markCancelled'])->name('orders.cancel');
 });
 
-
-
-use App\Http\Controllers\pos\cart\CartController;
 
 Route::post('/cart/add/{perfume}', [CartController::class, 'add'])->name('cart.add');
 Route::post('/cart/remove/{perfume}', [CartController::class, 'remove'])->name('cart.remove');

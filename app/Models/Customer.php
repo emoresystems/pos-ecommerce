@@ -19,4 +19,9 @@ class Customer extends Model
         'country',
         'total_spent',
     ];
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
 }
