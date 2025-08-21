@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\pos;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
+use App\Models\Perfume;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -12,7 +14,9 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('pos.dashboard');
+        $categories = Category::all();
+        $perfumes = Perfume::all();
+        return view('pos.dashboard', compact('categories', 'perfumes'));
     }
 
     /**
