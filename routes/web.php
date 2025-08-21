@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\pos\DashboardController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,8 +16,22 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('website.home');
 });
+
+
+
+Route::prefix('pos')->group(function(){
+    Route::resource('dashboard', DashboardController::class);
+
+});
+
+
+
+
+
+
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
