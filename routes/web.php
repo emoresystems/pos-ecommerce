@@ -27,6 +27,15 @@ use App\Http\Controllers\pos\categories\CategoryController;
 Route::get('/', function () {
     return view('website.home');
 });
+Route::get('/perfumes', function () {
+    return view('website.perfumes');
+});
+Route::get('/about', function () {
+    return view('website.about');
+});
+Route::get('/contact', function () {
+    return view('website.contact');
+});
 
 
 
