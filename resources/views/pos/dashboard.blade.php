@@ -25,7 +25,7 @@
 
             <!-- Toggle Cart Button (only on mobile) -->
             <button id="cartToggle"
-                class="md:hidden absolute right-4 bottom-[-22px] bg-primary text-white px-4 py-2 rounded-full flex items-center justify-center shadow-lg relative">
+                class="md:hidden absolute left-2 right-4 bottom-[-22px] bg-primary text-white px-4 py-2 rounded-full flex items-center justify-center shadow-lg relative">
                 <i class="fas fa-shopping-cart text-lg"></i>
                 
                 <!-- Cart count badge -->
