@@ -40,9 +40,7 @@
 
         <!-- Main Content Area -->
         <div class="flex flex-col md:flex-row flex-1 overflow-hidden">
-            <!-- Products Section -->
             <div class="w-full md:w-3/5 bg-white overflow-y-auto p-4 md:p-6">
-                <!-- Product filters -->
                 <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-6 space-y-3 md:space-y-0">
                     <h3 class="text-lg font-semibold">Products</h3>
                     <div class="flex space-x-2">

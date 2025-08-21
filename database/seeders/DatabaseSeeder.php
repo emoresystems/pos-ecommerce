@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
             PerfumeSeeder::class,
             CategorySeeder::class,
             SupplierSeeder::class,
+             CustomerSeeder::class,
         ]);
     }
 }

@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\PerfumeController;
 use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\SupplierController;
+use App\Http\Controllers\Api\CustomerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +25,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::apiResource('perfumes', PerfumeController::class);
 Route::apiResource('categories', CategoryController::class);
 Route::apiResource('suppliers', SupplierController::class);
+Route::apiResource('customers', CustomerController::class);
