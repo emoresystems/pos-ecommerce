@@ -5,7 +5,7 @@
 <div class="flex-1 overflow-auto">
     <div class="flex flex-col h-full">
         <!-- Header -->
-        <header class="bg-white shadow">
+        <header class="bg-white shadow relative">
             <div class="flex flex-col md:flex-row md:justify-between md:items-center px-4 md:px-6 py-3 space-y-3 md:space-y-0">
                 <div>
                     <h2 class="text-xl font-semibold">Point of Sale</h2>
@@ -22,12 +22,27 @@
                     </button>
                 </div>
             </div>
+
+            <!-- Toggle Cart Button (only on mobile) -->
+            <button id="cartToggle"
+                class="md:hidden absolute right-4 bottom-[-22px] bg-primary text-white px-4 py-2 rounded-full flex items-center justify-center shadow-lg relative">
+                <i class="fas fa-shopping-cart text-lg"></i>
+                
+                <!-- Cart count badge -->
+                @php $cartCount = session('cart') ? collect(session('cart'))->sum('quantity') : 0; @endphp
+                @if($cartCount > 0)
+                <span class="absolute -top-1 -right-1 bg-red-600 text-white text-xs font-bold w-5 h-5 flex items-center justify-center rounded-full">
+                    {{ $cartCount }}
+                </span>
+                @endif
+            </button>
         </header>
 
         <!-- Main Content Area -->
         <div class="flex flex-col md:flex-row flex-1 overflow-hidden">
             <!-- Products Section -->
             <div class="w-full md:w-3/5 bg-white overflow-y-auto p-4 md:p-6">
+                <!-- Product filters -->
                 <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-6 space-y-3 md:space-y-0">
                     <h3 class="text-lg font-semibold">Products</h3>
                     <div class="flex space-x-2">
@@ -72,7 +87,6 @@
                                         <i class="fas fa-cart-plus mr-1"></i> Add
                                     </button>
                                 </form>
-
                             </div>
                         </div>
                     </div>
@@ -83,7 +97,8 @@
             </div>
 
             <!-- Cart Section -->
-            <div class="w-full md:w-2/5 bg-gray-50 border-t md:border-t-0 md:border-l border-gray-200 overflow-y-auto">
+            <div id="cartPanel" class="w-full md:w-2/5 bg-gray-50 border-t md:border-t-0 md:border-l border-gray-200 overflow-y-auto 
+                fixed md:static bottom-0 left-0 h-2/3 md:h-auto transform translate-y-full md:translate-y-0 transition-transform duration-300 ease-in-out z-50">
                 <div class="p-4 md:p-6">
                     <h3 class="text-lg font-semibold mb-6">Current Sale</h3>
 
@@ -124,10 +139,19 @@
                     @else
                     <p class="text-gray-500">No items in cart yet.</p>
                     @endif
-
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<!-- Script for toggle -->
+<script>
+    const cartToggle = document.getElementById('cartToggle');
+    const cartPanel = document.getElementById('cartPanel');
+
+    cartToggle?.addEventListener('click', () => {
+        cartPanel.classList.toggle('translate-y-full');
+    });
+</script>
 @endsection
