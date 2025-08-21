@@ -19,7 +19,7 @@ class CustomerFactory extends Factory
             'address'    => $this->faker->address(),
             'city'       => $this->faker->city(),
             'country'    => $this->faker->country(),
-            'total_spent'=> $this->faker->randomFloat(2, 0, 50000), // up to 50k
+            'total_spent'=> $this->faker->randomFloat(2, 0, 500000), // up to 500k
         ];
     }
 }

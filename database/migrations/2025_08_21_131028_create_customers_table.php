@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('customers', function (Blueprint $table) {
-            $table->id(); // Primary key
+            $table->id(); 
             $table->string('first_name');
             $table->string('last_name')->nullable();
             $table->string('email')->unique()->nullable();
@@ -20,8 +20,8 @@ return new class extends Migration
             $table->text('address')->nullable();
             $table->string('city')->nullable();
             $table->string('country')->nullable();
-            $table->decimal('total_spent', 12, 2)->default(0); // Total sales
-            $table->timestamps(); // created_at & updated_at
+            $table->decimal('total_spent', 12, 2)->default(0); 
+            $table->timestamps(); 
         });
     }
 

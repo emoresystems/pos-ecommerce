@@ -8,6 +8,7 @@ use App\Http\Controllers\pos\DashboardController;
 use App\Http\Controllers\pos\perfumes\PerfumeController;
 use App\Http\Controllers\pos\categories\CategoryController;
 use App\Http\Controllers\pos\suppliers\SupplierController;
+use App\Http\Controllers\pos\customers\CustomerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +36,7 @@ Route::prefix('pos')->group(function () {
     Route::resource('categories', CategoryController::class);
 
     Route::resource('suppliers', SupplierController::class);
+    Route::resource('customers', CustomerController::class);
 });
 
 
