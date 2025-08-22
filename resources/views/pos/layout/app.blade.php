@@ -48,9 +48,14 @@
         <div class="p-4 border-b border-gray-700">
             <div class="text-center mb-4">
                 <p class="text-sm text-gray-400">Logged in as</p>
-                <p class="font-semibold">Sarah Johnson <span
-                        class="text-xs bg-primary px-2 py-1 rounded ml-2">Manager</span></p>
+                <p class="font-semibold">
+                    {{ auth()->user()->name }}
+                    <span class="text-xs bg-primary px-2 py-1 rounded ml-2">
+                        {{ ucfirst(auth()->user()->role) }}
+                    </span>
+                </p>
             </div>
+
             <div class="bg-gray-800 rounded-lg p-3 text-center">
                 <p class="text-xs text-gray-400">Today's Sales</p>
                 <p class="text-xl font-bold text-secondary">ksh 1,248.75</p>

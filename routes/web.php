@@ -48,7 +48,7 @@ Route::prefix('shop')->group(function () {
 
 
 // pos routes
-Route::prefix('pos')->group(function () {
+Route::prefix('pos')->middleware('can:access-pos')->group(function () {
 
     Route::resource('dashboard', DashboardController::class);
 
