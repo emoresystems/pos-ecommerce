@@ -63,6 +63,7 @@ Route::prefix('pos')->group(function () {
     Route::resource('orders', OrderController::class);
     Route::post('/orders/invoice', [OrderController::class, 'storeInvoice'])->name('orders.invoice');
     Route::get('/orders/{order}/invoice', [OrderController::class, 'showInvoice'])->name('orders.showInvoice');
+
     //filtered orders
     Route::get('orders/status/pending', [OrderController::class, 'pending'])->name('orders.pending');
     Route::get('orders/status/completed', [OrderController::class, 'completed'])->name('orders.completed');

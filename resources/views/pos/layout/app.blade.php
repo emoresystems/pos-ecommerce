@@ -171,11 +171,15 @@
 
 
         <div class="p-4 border-t border-gray-700">
-            <button
-                class="flex items-center justify-center w-full p-2 text-sm font-medium rounded-md text-white bg-gray-700 hover:bg-gray-600">
-                <i class="fas fa-sign-out-alt w-5"></i>
-                <span class="ml-3">Logout</span>
-            </button>
+            <form method="POST" action="{{ route('logout') }}">
+                @csrf
+                <button type="submit"
+                    class="flex items-center justify-center w-full p-2 text-sm font-medium rounded-md text-white bg-gray-700 hover:bg-gray-600">
+                    <i class="fas fa-sign-out-alt w-5"></i>
+                    <span class="ml-3">Logout</span>
+                </button>
+            </form>
+
         </div>
     </div>
 
