@@ -43,8 +43,10 @@
                 <td class="border p-2 flex space-x-2">
                     <a href="{{ route('orders.show', $order) }}"
                        class="text-blue-600 hover:underline">View</a>
-                    <a href="{{ route('orders.edit', $order) }}"
+                   @can('edit-pos')
+                        <a href="{{ route('orders.edit', $order) }}"
                        class="text-green-600 hover:underline">Edit</a>
+                   @endcan
                     <form action="{{ route('orders.destroy', $order) }}" method="POST" onsubmit="return confirm('Delete this order?')">
                         @csrf
                         @method('DELETE')

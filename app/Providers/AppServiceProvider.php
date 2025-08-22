@@ -24,5 +24,9 @@ class AppServiceProvider extends ServiceProvider
         Gate::define('access-pos', function ($user) {
             return in_array($user->role, ['admin', 'seller']);
         });
+
+        Gate::define('edit-pos', function ($user) {
+            return in_array($user->role, ['admin']); // only admin can edit
+        });
     }
 }

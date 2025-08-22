@@ -26,7 +26,9 @@
                     <td class="py-2 px-4 border">{{ $supplier->address }}</td>
                     <td class="py-2 px-4 border space-x-2">
                         <a href="{{ route('suppliers.show', $supplier) }}" class="text-blue-600">View</a>
-                        <a href="{{ route('suppliers.edit', $supplier) }}" class="text-green-600">Edit</a>
+                       @can('edit-pos')
+                            <a href="{{ route('suppliers.edit', $supplier) }}" class="text-green-600">Edit</a>
+                       @endcan
                         <form action="{{ route('suppliers.destroy', $supplier) }}" 
                               method="POST" 
                               class="inline"
