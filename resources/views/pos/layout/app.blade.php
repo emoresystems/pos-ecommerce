@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luxe Fragrances | POS System</title>
+    <title>{{ config('app.name') }} | POS System</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script>
@@ -12,10 +12,10 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: '#8B5FBF',
-                        secondary: '#D4AF37',
-                        accent: '#FF9E9E',
-                        dark: '#1F2937',
+                        primary: '#f59e0b', // Amber for gold
+                        secondary: '#D4AF37', // Classic gold shade
+                        accent: '#FF9E9E', // Pinkish accent
+                        dark: '#1F2937', // Dark background / text
                         light: '#F3F4F6',
                     }
                 }

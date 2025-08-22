@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 
+// website
+use App\Http\Controllers\website\contact\ContactController;
+
+
 // pos
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\pos\cart\CartController;
@@ -35,10 +39,15 @@ Route::get('/about', function () {
 });
 Route::get('/contact', function () {
     return view('website.contact');
+})->name('contact');
+
+// website routes group
+Route::prefix('shop')->group(function () {
+    Route::resource('contacts', ContactController::class);
 });
 
 
-
+// pos routes
 Route::prefix('pos')->group(function () {
 
     Route::resource('dashboard', DashboardController::class);

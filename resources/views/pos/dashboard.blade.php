@@ -31,7 +31,7 @@
                 <!-- Cart count badge -->
                 @php $cartCount = session('cart') ? collect(session('cart'))->sum('quantity') : 0; @endphp
                 @if($cartCount > 0)
-                <span class="absolute -top-1 -right-1 bg-red-600 text-white text-xs font-bold w-5 h-5 flex items-center justify-center rounded-full">
+                <span class="absolute -top-1 -right-1 bg-amber-600 text-white text-xs font-bold w-5 h-5 flex items-center justify-center rounded-full">
                     {{ $cartCount }}
                 </span>
                 @endif
@@ -114,7 +114,7 @@
                                 <span class="font-bold">ksh {{ number_format($item['quantity'] * $item['price'], 2) }}</span>
                                 <form action="{{ route('cart.remove', $id) }}" method="POST">
                                     @csrf
-                                    <button type="submit" class="text-red-500 hover:text-red-700">
+                                    <button type="submit" class="text-amber-500 hover:text-amber-700">
                                         <i class="fas fa-trash"></i>
                                     </button>
                                 </form>
@@ -131,7 +131,7 @@
 
                         <form action="{{ route('cart.clear') }}" method="POST">
                             @csrf
-                            <button type="submit" class="w-full bg-red-600 text-white py-2 rounded-lg mt-4">Clear Cart</button>
+                            <button type="submit" class="w-full bg-amber-600 text-white py-2 rounded-lg mt-4">Clear Cart</button>
                         </form>
 
                         <form action="{{ route('orders.invoice') }}" method="POST">
